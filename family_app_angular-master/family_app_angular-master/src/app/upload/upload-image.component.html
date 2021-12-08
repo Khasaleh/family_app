@@ -1,0 +1,53 @@
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<div class="container">
+  <div class="row">
+    <div class="col s8 offset-1">
+      <div>
+        <form [formGroup]="form" (ngSubmit)="uploadFiles()">
+          <div class="form-group">
+            <div class="cur">
+              <label class="label1" for="select">Current Time: </label>
+              {{ formattedDate }}
+              <br /><br>
+
+
+
+              <div class="form-group">
+                <label class="label4" for="select">Select: </label>
+                <img [src]="imageUrl" class="img" />
+                <div class="sh1">
+                  <input type="file" #inputFile class="form-control" (change)="onFileChange($event)"
+                    multiple="multiple" />
+                </div>
+              </div>
+              <br><br><br><br>
+
+              <div class="group">
+                <button [disabled]="form.invalid || progressInfos.length>0" type="submit" class="btn btn-submit sh2">
+                  Upload
+                </button>
+                <button type="cancel" class="btn btn-danger sh3" (click)="cancelNow()">
+                  Reset
+                </button>
+              </div>
+            </div>
+            <div class="move">
+              <div *ngFor="let progressInfo of progressInfos;">
+                <div>{{ progressInfo.fileName }}</div>
+                <div class="progress mb-0 pb-0 ">
+                  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+                    attr.aria-valuenow="{{ progressInfo.value }}" aria-valuemin="0" aria-valuemax="100"
+                    [ngStyle]="{ width: progressInfo.value + '%' }">
+                    {{ progressInfo.value }}%
+                  </div>
+
+                </div>
+                <p *ngIf="progressInfo.msg.length>0 ">{{ progressInfo.msg }}</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

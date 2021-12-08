@@ -1,0 +1,85 @@
+.container {
+  padding-top: 20px;
+  width: 1000px;
+}
+
+
+.cur{
+  float:left !important;
+}
+
+.sh{
+  padding-right: 60px;
+
+}
+
+.sh1{
+  padding-left: 107px;
+  width: 300px;
+  position: absolute !important;
+}
+
+.sh2{
+  margin-left: 100px;
+  margin-right: 5%;
+  padding-bottom: 0px;
+  width: 90px;
+  height: 45px;
+  background-color: lightseagreen;
+  color: white;
+}
+
+.sh3{
+
+  width: 90px;
+  height: 45px;
+  position: absolute;
+}
+
+.label1{
+  font-size: 14px; font-family:  Helvetica, sans-serif;  color: rgb(1, 1, 1);
+  margin-right: 16px;
+
+}
+
+.label2{
+  font-size: 14px; font-family:  Helvetica, sans-serif;  color: rgb(1, 1, 1);
+  margin-right: 14px;
+  padding-right: 32px;
+}
+
+.label3{
+  font-size: 14px; font-family:  Helvetica, sans-serif;  color: rgb(1, 1, 1);
+  margin-right: 14px;
+  padding-right: 1px;
+}
+
+.label4{
+  font-size: 14px; font-family:  Helvetica, sans-serif;  color: rgb(1, 1, 1);
+  margin-right: 14px;
+  padding-right: 16px;
+
+}
+
+.ml{
+  margin-left: 6%;
+  vertical-align: -webkit-baseline-middle;
+
+}
+
+.img{
+  width:150px;
+   height:150px;
+   margin-left: 9px;
+}
+
+.move{
+  padding-left: 400px !important;
+
+}
+
+.group{
+  margin-bottom: 40px
+}
+
+

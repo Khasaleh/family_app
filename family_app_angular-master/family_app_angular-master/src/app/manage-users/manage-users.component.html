@@ -1,0 +1,57 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<mat-toolbar>
+<div>
+<button mat-raised-button color="primary" class="bt" title="Create New User" (click)="onCreate()">
+  <mat-icon>person_add</mat-icon>
+  Create New User
+  </button>
+  </div>
+  <div class="mf1">Users List</div>
+
+</mat-toolbar>
+<div class="col-md-10 mt-5 user-container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Approved</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td >
+          <mat-icon style="color: green"  *ngIf="user.enabled"
+
+            (click)="onEnabled(user.id, user.enabled)"
+            title="Disable this user"
+         >verified_user</mat-icon>
+
+
+          <mat-icon  *ngIf="!user.enabled"
+
+            (click)="onEnabled(user.id, user.enabled)"
+            title="Approve this user"
+          >verified_user</mat-icon>
+        </td>
+        <td>
+          <button mat-mini-fab color="accent" (click)="deleteUser(user.id)">
+            <mat-icon title="Delete this User">delete</mat-icon>
+          </button>
+          <button
+            mat-mini-fab
+            color="primary"
+            class="ic2"
+            (click)="updateUser(user.id)">
+            <mat-icon title="Update this User">edit_note</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

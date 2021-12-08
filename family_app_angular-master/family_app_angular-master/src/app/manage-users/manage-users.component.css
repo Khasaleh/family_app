@@ -1,0 +1,38 @@
+mat-toolbar {
+  background: white;
+  width: 1660px;
+  height: 90px;
+  margin-top: 7px;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3rem;
+  margin-top: 4rem !important;
+}
+
+.mf1 {
+  font-size: xx-large;
+  margin:0 auto;
+  margin-top: 50px;
+
+}
+
+
+
+.ic2 {
+ margin-left: 15px
+}
+
+.bt{
+  margin-top: 30px;
+  font-size: 16x;
+}
+
+.hd{
+  margin-top: 30px;
+}
+
+
+

@@ -1,0 +1,68 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<mat-toolbar>
+  <form>
+    Advance Search:
+
+    <mat-form-field class="mf2">
+      <input class="inp" matInput #dateinput [min]="minDate" [max]="maxDate" [matDatepicker]="resultPicker"
+        placeholder="Choose a date" (dateChange)="selectDate($event)">
+      <mat-datepicker-toggle matSuffix [for]="resultPicker"></mat-datepicker-toggle>
+      <mat-datepicker #resultPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-icon (click)="reset()" title="Reset!" class="menu-icon">restore</mat-icon>
+
+
+
+
+    <button mat-button routerLink='../showImages' class="menu-button">
+      <mat-icon>list</mat-icon>
+      <span></span>
+    </button>
+    <button mat-button routerLink='../allImages' class=" ml-2 menu-button">
+      <mat-icon>ballot</mat-icon>
+      <span></span>
+    </button>
+
+
+  </form>
+</mat-toolbar>
+
+
+<div *ngIf="error"> {{error}} </div>
+<div>
+  <mat-icon class="ic" (click)="deleteImage()" title="Delete Seleced Items">delete_sweep</mat-icon>
+</div>
+
+<div class="col-md-11 mt-5 user-container">
+
+  <table class="table table-striped datatable">
+
+    <thead>
+      <tr>
+        <th>
+          <mat-checkbox [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)" [(ngModel)]="allchecked">
+          </mat-checkbox>
+        </th>
+        <th>Image</th>
+        <th>Date Uploaded</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let image of fileteredImages | paginate:
+       { itemsPerPage: 10, currentPage: page,
+        totalItems:fileteredImages.length }; let i= index;">
+
+        <td>
+          <mat-checkbox value="{{image.id}}" [(ngModel)]="fileteredImages[i].checked"></mat-checkbox>
+        </td>
+        <td>
+          <img [src]="image.localPath" width="60px" />
+        </td>
+        <td>{{image.date | date:'medium'}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
+</div>

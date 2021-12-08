@@ -1,0 +1,45 @@
+<div class="login-page">
+   <mat-card class="mat-elevation-z12">
+   <mat-card-title class="text">Update {{user.username}}</mat-card-title>
+    <mat-card-content>
+<div style="width: 400px;">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="name">User Name</label>
+      <input type="text" class="form-control" formControlName="username" id="username"  [(ngModel)]="user.username" name="username">
+       <div *ngIf="getControl.username.touched && getControl.username.invalid" class="text-danger">
+      <div *ngIf="getControl.username.errors.required">UserName is required.</div>
+      <div *ngIf="getControl.username.errors?.minlength">Minimum 4 character are required.</div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" formControlName="email" id="email" [(ngModel)]="user.email" name="email">
+        <div *ngIf="getControl.email.touched && getControl.email.invalid" class="text-danger">
+      <div *ngIf="getControl.email.errors.required">Email is required.</div>
+      <div *ngIf="getControl.email.errors.email">Email seems invalid.</div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Password</label>
+      <input type="password" class="form-control" formControlName="password" id="password"  [(ngModel)]="password" name="password">
+        <div *ngIf="getControl.password.touched && getControl.password.invalid" class="text-danger">
+
+      <div *ngIf="getControl.password.invalid">Min 13 characters and should be valid format!.</div>
+    </div>
+    </div>
+
+   <div class="center">
+    <button type="submit" class="btn btn-success button">Submit</button>
+
+    <div class="center1">
+        <button class="btn btn-danger button" (click)="gotoList()">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+</mat-card-content>
+</mat-card>
+</div>

@@ -1,0 +1,71 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<mat-toolbar class="mat-elevation-z10">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+
+  <span class="logo ">
+
+    <div><img src="/assets/img/family-logo.png" width="122" /></div>
+
+  </span>
+
+
+  <div class="wrapper">
+    <img class="search-icon" src="https://img.icons8.com/ios-glyphs/120/000000/search--v1.png" />
+    <input class=" search rounded-pill col-md-14" placeholder="Search" type="text">
+  </div>
+
+  <div class="us">
+    <img class="circular-square" width='43px' src="/assets/img/user.png">
+
+    <button class="username" mat-button [matMenuTriggerFor]="menu">Hi, {{tokenStorageService.getUser().username}}
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </div>
+
+
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+    <img class="avatar mat-elevation-z8" src="/assets/img/user.png" />
+
+    <h4 class="name">{{tokenStorageService.getUser().username}}</h4>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button routerLink='showImages' class="menu-button">
+      <mat-icon class="ml-0 mr-2 pl-0">image_search</mat-icon>
+      <span>Manage Uploaded</span>
+    </button>
+
+    <button mat-button routerLink='upload' class="menu-button">
+      <mat-icon class="ml-0 mr-2 pl-0">file_upload</mat-icon>
+      <span>Upload New</span>
+    </button>
+
+    <button *ngIf="admin" mat-button routerLink='users' class="menu-button">
+      <mat-icon class="ml-0 mr-2 pl-0">person_search</mat-icon>
+      <span>Manage Users</span>
+    </button>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+
+    </div>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

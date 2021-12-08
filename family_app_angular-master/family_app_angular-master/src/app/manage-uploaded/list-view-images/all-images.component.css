@@ -1,0 +1,71 @@
+mat-toolbar {
+  background: white;
+  width: 1650px;
+  height: 90px;
+  margin-top: 7px;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  margin-top: 6rem;
+}
+
+.ic {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 200px;
+  color: red;
+}
+
+img {
+  border: 1px solid rgba(184, 182, 180, 0.986);
+}
+
+.menu-button {
+  margin-left: 100px;
+  align-content: flex-end !important;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+}
+
+.mat-button:focus {
+  background: none;
+}
+
+.mf1 {
+  margin-top: 40px;
+  padding-left: 60px;
+  vertical-align: super;
+}
+
+.mf2 {
+  padding-left: 80px;
+  vertical-align: super;
+}
+
+.label1 {
+  margin-left: 3px;
+
+}
+
+.menu-icon {
+  font-size: 30px;
+  padding-left: 60px;
+
+}
+
+.inp {
+  outline: none !important;
+  outline-style: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
+
+
